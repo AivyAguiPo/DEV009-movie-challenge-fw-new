@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Poster</th>
+        <th>Título Original</th>
+        <th>Año de Lanzamiento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of getMoviesToDisplay()">
+        <td><img [src]="getMoviePosterUrl(movie.poster_path)" alt="{{ movie.original_title }}"></td>
+        <td>{{ movie.original_title }}</td>
+        <td>{{ movie.release_date | date: 'yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+    <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= movies.length">Siguiente</button>
+  </div>
