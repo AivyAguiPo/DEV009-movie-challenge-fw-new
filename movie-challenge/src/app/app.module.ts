@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +20,8 @@ import { TmdbApiService } from './service-tmdb/tmdb-api.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [
     TmdbApiService
