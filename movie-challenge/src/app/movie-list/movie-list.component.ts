@@ -26,15 +26,18 @@ export class MovieListComponent implements OnInit{
   }
 
   prevPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.loadMovies();
+    this.setPage(this.currentPage - 1 );
     }
-  }
+  
 
   nextPage(): void {
-    if (this.currentPage * this.itemsPerPage < this.movies.length) {
-      this.currentPage++;
+      this.setPage(this.currentPage + 1 );
+    
+  }
+  
+  setPage(page:number){
+    if (page >=1 && page <= this.movies.length){
+      this.currentPage = page;
       this.loadMovies();
     }
   }
@@ -42,7 +45,7 @@ export class MovieListComponent implements OnInit{
   getMoviesToDisplay(): Movie[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.movies.slice(startIndex, endIndex);
+    return this.movies/* .slice(startIndex, endIndex)*/;
   }
 
   // Método para obtener la URL completa del póster de la película
