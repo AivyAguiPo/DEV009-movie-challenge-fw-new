@@ -19,9 +19,12 @@ export class MovieListComponent implements OnInit{
   }
 
   loadMovies(): void {
-    this.tmdbService.getMovies(this.currentPage).subscribe(data => {
-      this.movies = data.results;
-      console.log (data.results)
+    this.tmdbService.getMovies(this.currentPage).subscribe((data: any) => {
+      if(data && data.results){
+        this.movies = data.results;
+        console.log (data.results)
+      }
+      
     });
   }
 

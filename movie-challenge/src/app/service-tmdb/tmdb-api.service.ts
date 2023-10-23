@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Movie } from '../models/movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class TmdbApiService {
   constructor(private http: HttpClient) { }
 
   //obtener lista de peliculas
-  getMovies(page:number): Observable<any> {
+  getMovies(page:number): Observable<Movie[]> {
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('page', page.toString()); // Agrega la paginación
 
-    return this.http.get(`${this.apiUrl}/discover/movie`, { params });
+    return this.http.get<Movie[]>(`${this.apiUrl}/discover/movie`, { params });
   }
 }
