@@ -13,11 +13,17 @@ export class TmdbApiService {
   constructor(private http: HttpClient) { }
 
   //obtener lista de peliculas
-  getMovies(page:number): Observable<Movie[]> {
+  getMovies(page: number): Observable<Movie[]> {
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('page', page.toString()); // Agrega la paginación
 
     return this.http.get<Movie[]>(`${this.apiUrl}/discover/movie`, { params });
+  }
+
+  // Obtener géneros de películas
+  getMovieGenres(): Observable<any> {
+    const params = new HttpParams().set('api_key', this.apiKey);
+    return this.http.get<any>(`${this.apiUrl}/genre/movie/list`, { params });
   }
 }

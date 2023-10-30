@@ -1,0 +1,16 @@
+<form>
+  <div class="filtros">
+    <label for="genre">Género</label>
+    <select  id="genre" [(ngModel)]="selectedGenre" name="selectedGenre">
+       <option *ngFor="let genre of genreOptions" [value]="genre.id">{{ genre.name }}</option>
+      <!--Opciones de género (puedes usar *ngFor para generar opciones dinámicamente) -->
+    </select>
+  </div>
+  <div class="filtros">
+    <label for="sort">Ordenar por</label>
+    <select id="sort" [(ngModel)]="selectedSort" name="selectedSort">
+      <!-- Opciones de ordenamiento (puedes usar *ngFor para generar opciones dinámicamente) -->
+    </select>
+  </div>
+  <button class="apply" (click)="applyFilter()">Aplicar</button>
+</form>

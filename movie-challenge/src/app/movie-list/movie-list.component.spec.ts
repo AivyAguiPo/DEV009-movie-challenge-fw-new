@@ -7,6 +7,7 @@ describe('MovieListComponent', () => {
   let fixture: ComponentFixture<MovieListComponent>;
 
   beforeEach(() => {
+    const httpClientSpy = jasmine.createSpyObj('HttpClient', )
     TestBed.configureTestingModule({
       declarations: [MovieListComponent]
     });

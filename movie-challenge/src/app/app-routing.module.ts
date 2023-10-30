@@ -4,7 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 
 const routes: Routes = [
-  { path: 'movies', component: MovieListComponent },
+  { 
+    path: 'movies', 
+  component: MovieListComponent 
+  },
+  {
+    path: '**', 
+    pathMatch: 'full',
+    redirectTo: 'movies'
+  }
+
 ];
 
 @NgModule({

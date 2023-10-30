@@ -14,7 +14,7 @@ export class MovieListComponent implements OnInit{
 
   constructor(private tmdbService: TmdbApiService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { //cuando mi componente se cree quiero llamar loadMovie
     this.loadMovies();
   }
 
