@@ -3,8 +3,8 @@
 </header>
 
 <main>
-  <app-movie-filter></app-movie-filter>
-  <movie-list></movie-list> <!-- Este es el espacio donde se cargarán los componentes según las rutas -->
+  <app-movie-filter [genreOptions]="genreOptions" [sortOptions]="sortOptions" (applyFilters)="applyFilter($event)"></app-movie-filter>
+  <movie-list [movies]="movies"></movie-list> <!-- Este es el espacio donde se cargarán los componentes según las rutas -->
 </main>
 
 <footer>

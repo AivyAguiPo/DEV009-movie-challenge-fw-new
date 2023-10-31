@@ -1,24 +1,25 @@
-mat-card-header
+.container
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 16px // Espacio entre las tarjetas (puedes ajustarlo según tus necesidades)
+    max-width: calc(20% * 5)
+
+mat-card
+    flex: 1
+    max-width: calc(20% - 16px) // 20% del ancho del contenedor con margen entre tarjetas
+    margin: 8px
     align-items: center
-
-tbody 
-    border: 5px solid #000
-    display: grid
-    grid-template-columns: repeat(5, 1fr) 
-    grid-gap: 5px 
+    background-color: #5A537D
+    border: 5px solid #CFCCD6
+    border-radius: 10px 
     
-
-tr
-    width: calc(30vw - 80px - 68px)
-    border: 5px solid #C1BFCE
-    color: #fff
+     
+mat-card-content
     
-    
+    align-items: center
 
 button
     border: 5px solid #74A6E0
     height: 30px
     width: 148px
-
-
-   

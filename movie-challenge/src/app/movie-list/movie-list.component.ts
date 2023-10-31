@@ -1,6 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { TmdbApiService } from '../service-tmdb/tmdb-api.service';
 import { Movie } from '../models/movie.model';
+import { NonNullAssert } from '@angular/compiler';
 
 @Component({
   selector: 'movie-list',
@@ -8,18 +9,18 @@ import { Movie } from '../models/movie.model';
   styleUrls: ['./movie-list.component.sass']
 })
 export class MovieListComponent implements OnInit{
-  movies: Movie[] = [];
+  @Input() movies: any[] = [];
   itemsPerPage = 10;
   currentPage = 1;
 
   constructor(private tmdbService: TmdbApiService) {}
 
   ngOnInit(): void { //cuando mi componente se cree quiero llamar loadMovie
-    this.loadMovies();
+    //this.loadMovies();
   }
 
   loadMovies(): void {
-    this.tmdbService.getMovies(this.currentPage).subscribe((data: any) => {
+    this.tmdbService.getMovies(this.currentPage, '').subscribe((data: any) => {
       if(data && data.results){
         this.movies = data.results;
         console.log (data.results)

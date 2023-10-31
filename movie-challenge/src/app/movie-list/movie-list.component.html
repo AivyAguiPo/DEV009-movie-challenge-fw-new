@@ -1,16 +1,17 @@
-<mat-card class="table">
-  <tbody>
-    <tr *ngFor="let movie of getMoviesToDisplay()">
-      <mat-card-header>
-        <img mat-card-image [src]="getMoviePosterUrl(movie.poster_path)" alt="{{ movie.original_title }}">
-      </mat-card-header>
-      <mat-card-content>
-        <mat-card-title>{{ movie.original_title }}</mat-card-title>
-        <mat-card-subtitle>{{ movie.release_date | date: 'yyyy' }}</mat-card-subtitle>
-      </mat-card-content>
-    </tr>
-  </tbody>
-</mat-card>
+<div class="container">
+  <mat-card class="table" *ngFor="let movie of getMoviesToDisplay()">
+    <tbody>
+        <mat-card-header>
+          <img mat-card-image [src]="getMoviePosterUrl(movie.poster_path)" alt="{{ movie.original_title }}">
+        </mat-card-header>
+        <mat-card-content>
+          <mat-card-title>{{ movie.original_title }}</mat-card-title>
+          <mat-card-subtitle>{{ movie.release_date | date: 'yyyy' }}</mat-card-subtitle>
+        </mat-card-content>
+    </tbody>
+  </mat-card>
+</div>
+
 
 <div class="pagination">
   <button mat-fab extended color="" (click)="prevPage()">

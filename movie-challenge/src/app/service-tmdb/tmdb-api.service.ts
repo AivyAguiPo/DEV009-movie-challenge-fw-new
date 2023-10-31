@@ -13,9 +13,10 @@ export class TmdbApiService {
   constructor(private http: HttpClient) { }
 
   //obtener lista de peliculas
-  getMovies(page: number): Observable<Movie[]> {
+  getMovies(page: number, gender: string): Observable<Movie[]>{
     const params = new HttpParams()
       .set('api_key', this.apiKey)
+      .set('with_genres', gender)
       .set('page', page.toString()); // Agrega la paginación
 
     return this.http.get<Movie[]>(`${this.apiUrl}/discover/movie`, { params });
