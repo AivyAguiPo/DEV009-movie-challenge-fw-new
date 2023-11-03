@@ -9,10 +9,15 @@ const routes: Routes = [
   component: MovieListComponent 
   },
   {
+  path: '', 
+    pathMatch: 'full',
+    redirectTo: '/movies'
+  },
+  {
     path: '**', 
     pathMatch: 'full',
-    redirectTo: 'movies'
-  }
+    redirectTo: '/movies'
+  },
 
 ];
 

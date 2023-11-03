@@ -27,4 +27,5 @@ export class TmdbApiService {
     const params = new HttpParams().set('api_key', this.apiKey);
     return this.http.get<any>(`${this.apiUrl}/genre/movie/list`, { params });
   }
+
 }

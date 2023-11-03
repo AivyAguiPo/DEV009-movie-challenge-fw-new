@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TmdbApiService } from '../service-tmdb/tmdb-api.service'
-import { Movie } from '../models/movie.model';
 
 @Component({
   selector: 'app-movie-filter',
@@ -21,8 +19,5 @@ export class MovieFilterComponent implements OnInit {
   applyFilter(): void {
     this.applyFilters.emit({genreId : this.selectedGenre, sort: this.selectedSort});
    }
-
-
-
 
 }
